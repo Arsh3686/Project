@@ -12,13 +12,11 @@ import {
 } from "@material-ui/core";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
-function DataGrid({ data }) {
+function DataGrid({ data,totalPages }) {
 	const [page, setPage] = useState(1);
-	const fetchData = async () => {};
 	const handlePageChange = (pageNumber) => {
-		if (page >= 1 && page <= 10) {
+		if (page >= 1 && page <= totalPages) {
 			setPage(pageNumber);
-		} else {
 		}
 	};
 	return (
@@ -70,7 +68,7 @@ function DataGrid({ data }) {
 						shape="rounded"
 						onChange={(e, v) => setPage(v)}
 						page={page}
-						count={10}
+						count={totalPages}
 						color="primary"
 					/>
 				</Stack>
@@ -85,9 +83,11 @@ export async function getStaticProps() {
 	const response = await axios.get(
 		`https://jsonplaceholder.typicode.com/posts`
 	);
+	const totalPages = Math.floor(response.data.length / 10);
 	return {
 		props: {
 			data: response.data,
+			totalPages,
 		},
 	};
 }
