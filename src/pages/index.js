@@ -13,13 +13,7 @@ import {
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 function DataGrid({ data }) {
-	console.log(data);
-	// const [data, setData] = useState([]);
 	const [page, setPage] = useState(1);
-
-	// useEffect(() => {
-	// 	setData([...response]);
-	// }, []);
 	const fetchData = async () => {};
 	const handlePageChange = (pageNumber) => {
 		if (page >= 1 && page <= 10) {
@@ -91,7 +85,6 @@ export async function getStaticProps() {
 	const response = await axios.get(
 		`https://jsonplaceholder.typicode.com/posts`
 	);
-	console.log("response", response);
 	return {
 		props: {
 			data: response.data,
