@@ -22,7 +22,6 @@ function DataGrid({ data,totalPages }) {
 	return (
 		<div
 			style={{
-				width: "90vw",
 				display: "flex",
 				flexDirection: "column",
 				justifyContent: "center",
@@ -30,7 +29,10 @@ function DataGrid({ data,totalPages }) {
 			}}>
 			<div
 				style={{
-					width: "60vw",
+					width: "80vw",
+					display: "flex",
+					flexDirection: "column",
+					justifyContent: "center",
 				}}>
 				{data &&
 					data
