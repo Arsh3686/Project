@@ -81,7 +81,7 @@ function DataGrid({ data,totalPages }) {
 
 export default DataGrid;
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
 	const response = await axios.get(
 		`https://jsonplaceholder.typicode.com/posts`
 	);
